@@ -4,6 +4,8 @@
 #include <iostream>
 #include <vector> 
 #include <iomanip>
+#include <fstream>
+#include <string>
 using namespace std;
 
 const int W15 = 15; 
@@ -19,7 +21,7 @@ public:
     string getTitle()                   { return title; }
     void setTitle(string movieTitle)    { title = movieTitle; }
     string getWriterName()              { return writerName; }
-    void setWriterName(int n)           { writerName = n; }
+    void setWriterName(string n)           { writerName = n; }
 
     void print() { 
         cout << "Movie: " << title << endl; 
@@ -29,5 +31,24 @@ public:
 };
 
 int main() { 
+    vector<Movie> movies; 
+    ifstream inputFile("input.txt"); 
+    string title; // temporarly holds the title
+    int year; // temporarly holds the year
+    string screenWriter; // temporarly holds the screenWriter
+
+    if(inputFile.good()) { 
+        while (inputFile >> title) { 
+            inputFile.ignore();
+            inputFile >> year; 
+            getline(inputFile, screenWriter);
+            Movie tempMovie; 
+            tempMovie.setTitle(title);
+            tempMovie.setYearReleased(year);
+            tempMovie.setWriterName(screenWriter);
+        }
+    }
+
+
     return 0; 
 }
