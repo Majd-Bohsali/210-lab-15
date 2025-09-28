@@ -8,7 +8,7 @@
 #include <string>
 using namespace std;
 
-const int W15 = 15; 
+const int W4 = 4; 
 
 class Movie {
 private:
@@ -25,8 +25,8 @@ public:
 
     void print() { 
         cout << "Movie: " << title << endl; 
-        cout << setw(W15) << "Year Released: " << yearReleased << endl; 
-        cout << setw(W15) << "Screenwriter: " << writerName << endl; 
+        cout << setw(W4) << " " << "Year Released: " << yearReleased << endl; 
+        cout << setw(W4) << " " << "Screenwriter: " << writerName << endl; 
     }
 };
 
